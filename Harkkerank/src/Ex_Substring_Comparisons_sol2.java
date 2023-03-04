@@ -10,7 +10,7 @@ public class Ex_Substring_Comparisons_sol2 {
 //	비교당하는단어 > 비교할단어  , return  양수 (String)
 
 	private static String getSmallestAndLargest(String s, int k) {
-		log.trace(":invoked");
+
 
 		String smallest = "";
 		String largest = "";
@@ -54,7 +54,6 @@ public class Ex_Substring_Comparisons_sol2 {
 
 //========================================================================
 	public static void main(String[] args) {
-		log.trace("Main invoked.");
 
 		Scanner scan = new Scanner(System.in);
 
@@ -66,7 +65,6 @@ public class Ex_Substring_Comparisons_sol2 {
 			k = scan.nextInt();
 		} // try-with-resources
 		
-		log.trace("\n" + getSmallestAndLargest(s, k));
 		
 //		 Scanner는 AutoClosable을 상속 받기때문에 문법적으로 자원객체 이다. 
 //		 때문에 위의 문법이 정상적으로 된다.

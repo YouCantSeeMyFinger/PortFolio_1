@@ -24,8 +24,7 @@ public class Ex_Palindrome {
 //			charAt(i) 사용
 //		} 
 
-		log.info("name ={}", name);
-		log.info("R_name ={}", R_name);
+
 
 		name.equals(R_name);
 

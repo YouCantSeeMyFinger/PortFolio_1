@@ -3,7 +3,7 @@ import java.io.InputStreamReader;
 
 public class Ex_Java_Int_to_String {
 
-	private BufferedReader br;
+	private final BufferedReader br;
 
 	public Ex_Java_Int_to_String() {
 		this.br = new BufferedReader(new InputStreamReader(System.in));
