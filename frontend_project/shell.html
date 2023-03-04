@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Document</title>
+
+    <link rel="stylesheet" href="/css/전광판.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="box_row">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+
+        <div class="box_row">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+
+        <div class="box_row">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+
+        <div class="box_row">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+
+        <div class="box_row">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+
+        <div class="box_row">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+
+        <div class="box_row">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+
+    <script>
+
+        let selectedElement;
+
+        const parameter1 = () => {
+            let number1 = Math.random() * 7 + 1;
+            let number2 = Math.floor(number1);
+            return number2;
+        }
+
+        const parameter2 = () => {
+            let number3 = Math.random() * 7 + 1;
+            let number4 = Math.floor(number3);
+            return number4;
+        }
+
+
+        const red = (parameter1, parameter2) => {
+            console.log(`${parameter1} , ${parameter2}`);
+
+            if (selectedElement != null && selectedElement != undefined) {
+                selectedElement.style.background = "white"; 
+            };
+
+            selectedElement = document.querySelector(
+                `.box_row:nth-of-type(${parameter1})>div:nth-of-type(${parameter2})`
+            );
+            selectedElement.style.background = "red";
+        }
+
+        setInterval(() => red(parameter1(), parameter2()), 1000);
+
+
+    </script>
+</body>
+
+</html>

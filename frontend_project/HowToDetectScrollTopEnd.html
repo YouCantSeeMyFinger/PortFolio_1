@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ttt</title>
+
+    <style>
+        body {
+            height: 3000px;
+            background-image: linear-gradient(0deg, aqua, orange, yellow, green, blue, brown, purple);
+        }
+    </style>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"
+        integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.4.1/jquery-migrate.min.js"></script>
+
+    <!-- $(window).scrollTop(이동픽셀수) -->
+
+    <script defer="">
+        const px = 1;               // 매 주기마다 스크롤바를 이동시킬 픽셀수
+        const interval = 50;        // (간격)주기 설정(milliseconds)
+        const maxHeight = 3000;     // 브라우저 viewport 의 최대 높이 설정
+
+        // 1. 지정된 시간주기에 따라, 수직스크롤바를 움직일 이동픽셀수를 호출함수의 인자로 전달
+        const intervalId = setInterval(scrollTop, interval, px);
+
+        // 2. 웹브라우저 윈도의 스크롤바의 위치를 이동할 때 발생하는 이벤트인, 
+        //   onscroll에 Event Handler 로 익명함수 설정:
+
+        // 1st. window 내장객체의 onscroll 이벤트 속성에 이벤트 핸들러 설정 (***)
+        // window.onscroll = function () {                  // 1st. method
+        //      ...
+        // };
+
+        // 2nd. window 내장객체의 이벤트 설정 메소드인 addEventListener 이용하여, 위 1st.와 동일 이벤트 핸들러 설정
+        // window.addEventListener('scroll', function () {  // 2nd. method (***)
+        //      ...
+        // };
+
+        // 3rd. 제이쿼리의 이벤트 설정 메소드 이용 방법
+        $(window).scroll(() => {                            // 3rd. method (***)
+            console.debug(`>> window.innerHeight(${window.innerHeight}), window.scrollY(${window.scrollY}), document.body.scrollHeight(${document.body.scrollHeight})`)
+            // innerHeight는 윈도우 브라우저에 메뉴바 , 주소창 , 등등을 제외한 순수한 뷰포트의 높이를 말한다.
+            // 때문에 창의 크기를 줄이면 뷰포트의 크기도 변한다.
+
+            //----- How to detect the end of vertical scroll bar in the web browsers. (*******)
+            if ($(window).innerHeight() + $(window).scrollTop() > $("body").height()) {   
+                // 1. 제이쿼리 메소드 이용
+                // if(window.innerHeight + window.scrollY > document.body.scrollHeight) {          
+                // 2. 자바스크립트 내장객체 속성이용
+                clearInterval(intervalId);                  
+                // setInterval 자원해제
+                console.debug('>>> setInterval released.')
+            } // if
+        });
+
+        // 3. window 내장객체의 scrollBy(x,y) 메소드로, 인자값만큼의 픽셀수로 수직스크롤 증분이동시킴
+        function scrollTop(pixels) {
+            window.scrollBy(0, pixels)  // 수직스크롤 증분이동
+        } // scrollTop
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
