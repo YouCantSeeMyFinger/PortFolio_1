@@ -5,7 +5,6 @@ import java.util.Comparator;
  * 프로그래머스 Compare관련 문제 통과 +9점 */
 
 class Solution {
-
     public String[] solution(String[] strings, int n) {
 
         for (String array : strings) {
@@ -14,7 +13,6 @@ class Solution {
 
         // 기존의 코드를 지우고 다시 새로 짜서..
         // strings에 값이 제대로 들어오는 지 확인
-
         Arrays.sort(strings, new Comparator<String>() {
                     // Arrays.sort(parmeter1 , parameter2);
                     // 보통 2번쨰 파라미터를 생략하고 쓰는 경우가 많은 대 두번 째 파라미터에는
